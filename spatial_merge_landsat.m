@@ -4,10 +4,10 @@ folder = "spatial";
 node_id = "10004098";
 dir_out = "../figures/" + folder + "/";
 dir_data = "../data/";
-fn_data = dir_data + "driving_" + node_id + ".csv";
+fn_data = dir_data + "driving_" + node_id + "_NEXRAD_5km.csv";
 
 df = readtable(fn_data, 'VariableNamingRule','preserve');
-df.longitude = - df.longitude;
+% df.longitude = - df.longitude;
 df.UTC.TimeZone = "UTC";
 
 df.LocalTime = df.UTC;
@@ -31,10 +31,10 @@ rows1 = round(rows1); % to int index
 cols1 = round(cols1); % to int index
 
 for i = 1:4
-    df.(['surface reflectance band ',int2str(i)]) = A(sub2ind(size(A),rows1,cols1, ones(size(rows1))*i));
+    df.(['Surface Reflectance Band ',int2str(i)]) = A(sub2ind(size(A),rows1,cols1, ones(size(rows1))*i));
 end
 
-fn_out = dir_data + "driving_" + node_id + "_landsat.csv";
+fn_out = dir_data + "driving_" + node_id + "_NEXRAD_5km_landsat.csv";
 writetable(df,fn_out)
 
 

@@ -60,7 +60,7 @@ To visualize the spatial and temporal variation of the irradiance, run:
 
 To merge the NEXRAD data,
 
-	matlab spatial_merge_NEXRAD.m
+	spatial.ipynb
 
 To merge the Landsat-8 data,
 
